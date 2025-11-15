@@ -1,0 +1,20 @@
+{
+  "services": [
+    {
+      "id": "self-ping",
+      "name": "Self Ping Service",
+      "url": "http://localhost:8000/ping",
+      "expectedVersion": null,
+      "environment": "production",
+      "enabled": true
+    },
+    {
+      "id": "example-api",
+      "name": "Example External API",
+      "url": "https://example.com/health",
+      "expectedVersion": "1.0.0",
+      "environment": "staging",
+      "enabled": false
+    }
+  ]
+}
