@@ -71,6 +71,15 @@
       "expectedVersion": null,
       "environment": "production",
       "enabled": true
+    },
+    {
+      "id": "broken-service",
+      "name": "Broken Service",
+      "url": "https://this-domain-does-not-exist.example",
+      "expectedVersion": null,
+      "environment": "production",
+      "enabled": true
     }
+
   ]
 }
