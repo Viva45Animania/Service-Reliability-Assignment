@@ -2,7 +2,7 @@
   "services": [
     {
       "id": "self-ping",
-      "name": "[My example service] Self Ping Service",
+      "name": "[My service] Self Ping Service",
       "url": "http://localhost:8000/ping",
       "expectedVersion": null,
       "environment": "production",
