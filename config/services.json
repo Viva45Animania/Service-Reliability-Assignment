@@ -2,7 +2,7 @@
   "services": [
     {
       "id": "self-ping",
-      "name": "Self Ping Service",
+      "name": "[My example service] Self Ping Service",
       "url": "http://localhost:8000/ping",
       "expectedVersion": null,
       "environment": "production",
@@ -15,6 +15,62 @@
       "expectedVersion": "1.0.0",
       "environment": "staging",
       "enabled": false
+    },
+    {
+      "id": "singapore-psi",
+      "name": "Singapore PSI (Air Quality)",
+      "url": "https://api.data.gov.sg/v1/environment/psi",
+      "expectedVersion": null,
+      "environment": "production",
+      "enabled": true
+    },
+    {
+      "id": "singapore-onemap-search",
+      "name": "OneMap Search API",
+      "url": "https://developers.onemap.sg/commonapi/search?searchVal=Marina%20Bay",
+      "expectedVersion": null,
+      "environment": "production",
+      "enabled": true
+    },
+    {
+      "id": "hdb-carpark-availability",
+      "name": "HDB Carpark Availability",
+      "url": "https://api.data.gov.sg/v1/transport/carpark-availability",
+      "expectedVersion": null,
+      "environment": "production",
+      "enabled": true
+    },
+    {
+      "id": "nea-pm25",
+      "name": "NEA PM2.5 Air Quality",
+      "url": "https://api.data.gov.sg/v1/environment/pm25",
+      "expectedVersion": null,
+      "environment": "production",
+      "enabled": true
+    },
+    {
+      "id": "ipos-applications",
+      "name": "IPOS Applications Metadata",
+      "url": "https://api-production.data.gov.sg/v2/public/api/collections/281/metadata",
+      "expectedVersion": null,
+      "environment": "production",
+      "enabled": true
+    },
+    {
+      "id": "hpb-parks",
+      "name": "HPB Parks@SG Metadata",
+      "url": "https://api-production.data.gov.sg/v2/public/api/collections/119/metadata",
+      "expectedVersion": null,
+      "environment": "production",
+      "enabled": true
+    },
+    {
+      "id": "data-govsg-collections",
+      "name": "Data.gov.sg Collections API",
+      "url": "https://api-production.data.gov.sg/v2/public/api/collections",
+      "expectedVersion": null,
+      "environment": "production",
+      "enabled": true
     }
   ]
 }
