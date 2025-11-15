@@ -29,28 +29,35 @@ class SQLiteServiceRepository(ServiceRepository):
             return None
         return self._to_domain(row)
 
+    def save(self, service: Service) -> None:
+        existing = (
+            self._db.query(ServiceORM)
+            .filter(ServiceORM.id == str(service.id))
+            .first()
+        )
+        if existing:
+            existing.name = service.name
+            existing.url = service.url
+            existing.expected_version = (
+                service.expected_version.value if service.expected_version else None
+            )
+            existing.environment = service.environment.value
+            existing.enabled = service.enabled
+        else:
+            row = ServiceORM(
+                id=str(service.id),
+                name=service.name,
+                url=service.url,
+                expected_version=service.expected_version.value if service.expected_version else None,
+                environment=service.environment.value,
+                enabled=service.enabled,
+            )
+            self._db.add(row)
+        self._db.commit()
+
     def save_or_update_many(self, services: Iterable[Service]) -> None:
         for service in services:
-            existing = self._db.query(ServiceORM).filter(ServiceORM.id == service.id).first()
-            if existing:
-                existing.name = service.name
-                existing.url = service.url
-                existing.expected_version = (
-                    service.expected_version.value if service.expected_version else None
-                )
-                existing.environment = service.environment.value
-                existing.enabled = service.enabled
-            else:
-                row = ServiceORM(
-                    id=str(service.id),
-                    name=service.name,
-                    url=service.url,
-                    expected_version=service.expected_version.value if service.expected_version else None,
-                    environment=service.environment.value,
-                    enabled=service.enabled,
-                )
-                self._db.add(row)
-        self._db.commit()
+            self.save(service)
 
     def list_all(self) -> List[Service]:
         rows = self._db.query(ServiceORM).all()

@@ -2,6 +2,7 @@
 from fastapi import FastAPI
 
 from app.interfaces.api.health_router import router as health_router
+from app.interfaces.api.service_router import router as service_router
 from app.interfaces.ui.dashboard_router import router as dashboard_router
 from app.infrastructure.db.base import Base, engine, SessionLocal
 from app.infrastructure.scheduling.health_check_scheduler import start_health_check_scheduler
@@ -35,6 +36,7 @@ def service_reliability_app() -> FastAPI:
 
     # Routers
     app.include_router(health_router, prefix="/health", tags=["health"])
+    app.include_router(service_router, prefix="/services", tags=["services"])
 
     app.include_router(dashboard_router, tags=["dashboard"])
 
