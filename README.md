@@ -9,7 +9,7 @@ Designed using Domain-Driven Design (DDD) principles, FastAPI, and an asynchrono
 ---
 ⚡ Quickstart
 1. Clone the repository
-git clone https://github.com/your-username/service-reliability-monitor.git
+git clone https://github.com/viva45animania/service-reliability-monitor.git
 cd service-reliability-monitor
 
 2. Create a virtual environment
